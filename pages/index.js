@@ -1,6 +1,10 @@
 import Head from 'next/head'
+// import ReactQuill from 'react-quill';
+// import 'react-quill/dist/quill.snow.css';
+import React, {useState} from 'react';
 
 export default function Home() {
+  const [value, setValue] = useState('');
   return (
     <div className="container">
       <Head>
@@ -12,6 +16,8 @@ export default function Home() {
         <h1 className="title">
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        {/* <ReactQuill theme="snow" value={value} onChange={setValue}/> */}
 
         <p className="description">
           Get started by editing <code>pages/index.js</code>
@@ -193,6 +199,7 @@ export default function Home() {
       <style jsx global>{`
         html,
         body {
+          background: #5695F0;
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,

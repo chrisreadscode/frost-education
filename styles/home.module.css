@@ -1,0 +1,167 @@
+.inherit {
+  border: inherit;
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.blueBackground {
+  background-color: #5695f0;
+  color: white;
+}
+
+.bulletCircle {
+  border: 2px solid #5695F0;
+  border-radius: 50%;
+  height: 25px;
+  margin: 12px;
+  width: 25px;
+}
+
+.bulletCompletedCircle {
+  background-color: #5695F0;
+}
+
+.bulletRow {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.bulletRow:hover {
+  opacity: 50%;
+  text-decoration: underline;
+}
+
+.bullets {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  height: 85%;
+  justify-content: flex-start;
+  margin-top: 10px;
+  width: 90%;
+}
+
+.college {
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px 1px white;
+  color: #5695F0;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 150px;
+}
+
+.collegeList {
+  align-items: flex-start;
+  display: flex;
+  /* ~13.333% of height */
+  height: 97.5px;
+  justify-content: space-around;
+  font-size: larger;
+  margin: 5%;
+  text-align: center;
+  width: 90%;
+}
+
+.frostTitle {
+  display: flex;
+  font-size: 30px;
+  justify-content: center;
+  margin: auto;
+  /* ~2.5% of height: 5% total */
+  padding: 35px;
+  width: 250px;
+}
+
+.frostTitle:hover {
+  opacity: 50%;
+  text-decoration: underline;
+}
+
+.modal {
+  display: none;
+  height: 100vh;
+  overflow: auto;
+  position: fixed;
+  visibility: hidden;
+  width: 100vw;
+  z-index: 1;
+}
+
+.sections {
+  color: #5695f0;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.section {
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 0px 1px 2px white;
+  display: flex;
+  flex-direction: column;
+  /* ~50% of height */
+  height: 375px; 
+  justify-content: flex-start;
+  /* ~20% of width */
+  width: 250px;
+  
+}
+
+.sectionButton {
+  background-color: #5695f0;
+  border-radius: 10px;
+  border: 3px solid white;
+  color: white;
+  font-size: 15;
+  position: absolute;
+  text-align: right;
+  top: 0px;
+  right: 0px;
+  height: 20px;
+  /* width: 25%; */
+}
+
+.sectionButton:hover {
+  opacity: 50%;
+  text-decoration: underline;
+}
+
+.sectionTitle {
+  border-bottom: 1px solid #5695F0;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  height: 15%;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.sectionTitle:hover {
+  opacity: 50%;
+  text-decoration: underline;
+}
+
+.support {
+  align-items: flex-end;
+  background-color: #5695F0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  z-index: 1;
+}
+
+.support:hover {
+  opacity: 50%;
+  text-decoration: underline;
+}
