@@ -1,27 +1,21 @@
 import Bullet from './bullet';
+import capitalize from '../../utilities';
 import Link from 'next/Link';
 import styles from '../../styles/home.module.css';
 
 export default function Section(bullets) {
-  let sectionCapitalize = '';
+  let sectionTitle = '';
 
   const task = bullets[0];
-  if (bullets && task) {
-    const sectionArr = task.section.split('-');
-    const sectionArrCapitalized = sectionArr.map((word) => {
-      const firstLetterCapital = word[0].toUpperCase();
-      return firstLetterCapital + word.substring(1);
-    });
-    sectionCapitalize = sectionArrCapitalized.join(' ');
-  }
+  if (bullets && task) sectionTitle = capitalize(task.section)
 
   return (
     <div className={styles.section}>
       {bullets && task ? (
         <>
-          <Link href={bullets[0].pageLink}>
+          <Link href={bullets[0].section}>
             <a className={`${styles.sectionTitle} ${styles.inherit}`}>
-              {sectionCapitalize}
+              {sectionTitle}
             </a>
           </Link>
           <div className={styles.bullets}>

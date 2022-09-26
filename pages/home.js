@@ -1,3 +1,4 @@
+import GetStudent from '../components/_getStudent';
 import GetTasks from '../components/home/_getTasks';
 import Link from 'next/Link';
 import Section from '../components/home/section';
@@ -11,6 +12,8 @@ export default function Home() {
   const [essay, setEssay] = useState([]);
   const [capstoneProject, setCapstoneProject] = useState([]);
   const [meetings, setMeetings] = useState([]);
+
+  const student = GetStudent();
 
   useEffect(() => {
     setCollegeList(tasks.collegeList);
@@ -29,19 +32,19 @@ export default function Home() {
     'UCLA',
   ];
 
+  const mailto = `mailto:support@frost.education?subject=Support | ${student ? student.firstName : ''}&body=Please kindly let us know here what issue you're facing. We'll get back to you shortly !`;
+
   return (
     <div className={styles.blueBackground}>
-      {/* <div className={styles.modal}>
-        Hi there
-      </div> */}
       <button
         className={`${styles.support} ${styles.inherit}`}
-        onClick={() => console.log('hi')}
+        onClick={() => {
+          window.location.href = mailto;
+        }}
       >
         <div>Tech Support &</div>
         <div>Report a Problem</div>
       </button>
-      {/* <div>Live Video Tech Support</div> */}
       <Link href="/home">
         <a className={`${styles.frostTitle} ${styles.inherit}`}>
           Frost Education*
