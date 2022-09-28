@@ -1,6 +1,6 @@
 import GetStudent from '../components/_getStudent';
 import GetTasks from '../components/home/_getTasks';
-import Link from 'next/Link';
+import Link from 'next/link';
 import Section from '../components/home/section';
 import styles from '../styles/home.module.css';
 import { useEffect, useState } from 'react';
