@@ -10,18 +10,47 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model College {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  logoLink String?
+  name     String  @unique
+  nickname String  @unique
+
+  students StudentColleges[]
+}
+
 model Curriculum {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  pageLink String
-  section  String
-  title    String
+  content                 String?
+  lectureLink             String?
+  pageLink                String
+  positionInSequence      Int
+  section                 String
+  title                   String
+  titleForTableOfContents String
 
-  students StudentsOnCurriculum[]
+  curriculumExamples CurriculumExample[]
+  students           StudentProgressOnCurriculum[]
 
   @@unique([pageLink, section, title])
+}
+
+model CurriculumExample {
+  id               Int        @id @default(autoincrement())
+  creator          Student    @relation(fields: [creatorStudentId], references: [id])
+  creatorStudentId Int
+  curriculum       Curriculum @relation(fields: [curriculumId], references: [id])
+  curriculumId     Int
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  example String
 }
 
 model Student {
@@ -29,21 +58,40 @@ model Student {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  email     String @unique
-  firstName String
+  firstName String?
+  lastName  String?
+  program   String?
+  username  String  @unique
 
-  curriculum StudentsOnCurriculum[]
+  colleges           StudentColleges[]
+  curriculum         StudentProgressOnCurriculum[]
+  curriculumExamples CurriculumExample[]
 }
 
-model StudentsOnCurriculum {
+model StudentColleges {
+  college   College  @relation(fields: [collegeId], references: [id])
+  collegeId Int
+  student   Student  @relation(fields: [studentId], references: [id])
+  studentId Int
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  choice Int
+
+  @@id([collegeId, studentId])
+}
+
+model StudentProgressOnCurriculum {
   curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
   curriculumId Int
   student      Student    @relation(fields: [studentId], references: [id])
   studentId    Int
-  createdAt   DateTime   @default(now())
+  createdAt    DateTime   @default(now())
   updatedAt    DateTime   @updatedAt
 
+  answer   String?
   complete Boolean @default(false)
+  notes    String?
 
   @@id([curriculumId, studentId])
 }
