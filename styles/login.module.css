@@ -1,0 +1,46 @@
+.forgot {
+  color: white;
+  cursor: pointer;
+  right: 20px;
+  position: absolute;
+  top: 10px;
+}
+
+.forgot:hover {
+  opacity: 50%;
+  text-decoration: underline;
+}
+
+.form {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+
+.frostTitle {
+  color: white;
+  font-size: 30px;
+  width: 250px;
+}
+
+.input {
+  background-color: white;
+  border: 0px;
+  border-radius: 5px;
+  height: 2vh;
+  margin: 3% 0%;
+  text-align: center;
+  width: 20vw;
+}
+
+.login {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  justify-content: center;
+}
+
+.position {
+  position: relative;
+}

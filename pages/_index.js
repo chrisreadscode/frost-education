@@ -1,7 +1,7 @@
-import Head from 'next/head'
+import Head from 'next/head';
 // import ReactQuill from 'react-quill';
 // import 'react-quill/dist/quill.snow.css';
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 export default function Home() {
   const [value, setValue] = useState('');
@@ -60,8 +60,7 @@ export default function Home() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel" className="logo" />
+          Powered by <img src="/vercel.svg" alt="Vercel" className="logo" />
         </a>
       </footer>
 
@@ -195,22 +194,6 @@ export default function Home() {
           }
         }
       `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          background: #5695F0;
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
     </div>
-  )
+  );
 }

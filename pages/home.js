@@ -61,17 +61,6 @@ export default function Home() {
           <div className={styles.college}>{college}</div>
         ))}
       </div>
-      <style jsx global>{`
-        html,
-        body {
-          background: #5695f0;
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-      `}</style>
     </div>
   );
 }
