@@ -42,13 +42,13 @@ export default async function handler(req, res) {
         // create a new course progression
         const getCourseContent = await prisma.coursePage.findMany();
 
-        for (let task of getCourseContent) {
-          const newTask = await prisma.student.update({
+        for (let coursePage of getCourseContent) {
+          const newCoursePageProgressForStudent = await prisma.student.update({
             where: { id: addStudent.id },
             data: {
               studentsProgress: {
                 create: {
-                  coursePageId: task.id,
+                  coursePageId: coursePage.id,
                 },
               },
             },

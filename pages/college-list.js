@@ -16,8 +16,8 @@ export default function Lecture() {
   const [coursePageId, setCoursePageId] = useState();
   const [nextLessonUrl, setNextLessonUrl] = useState('');
   const [openCourseMenu, setOpenCourseMenu] = useState(true);
-  const [pillarId, setPillarId] = useState();
-  const [positionInSection, setPositionInSection] = useState();
+  const [pillarId, setPillarId] = useState(2);
+  const [positionInSection, setPositionInSection] = useState(4);
   const [title, setTitle] = useState('');
   const [url, setUrl] = useState('');
 
@@ -61,9 +61,8 @@ export default function Lecture() {
   }, [coursePageId]);
 
   useEffect(async () => {
-    // console.log(router.query)
     // if (Object.keys(router.query).length) {
-    const hardcoded = { pillar: 'college-list', title: 'College List' };
+    const hardcoded = { pillar: 'college-list', title: 'college-list' };
 
     const obj = {
       body: JSON.stringify(hardcoded),
@@ -74,11 +73,12 @@ export default function Lecture() {
     const data = await response.json();
 
     let { accessToken, coursePage, error } = data;
-    console.log({ coursePage });
     if (error) {
       alert('Credentials have expired. Please login again.');
       router.push('/login');
     } else setCookie('accessToken', accessToken);
+
+    console.log({coursePage})
 
     coursePage = coursePage.coursePages[0];
     const {
