@@ -1,0 +1,23 @@
+.iconAndTitle {
+  align-items: center;
+  color: inherit;
+  display: flex;
+  text-decoration: none;
+  width: 100%;
+}
+
+.iconAndTitle:hover {
+  text-decoration: underline;
+  opacity: 50%;
+}
+
+.pillarPieceLine {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5px;
+}
+
+.title {
+  padding-left: 10px;
+}

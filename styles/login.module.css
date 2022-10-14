@@ -1,8 +1,7 @@
 .forgot {
-  color: white;
+  color: #3C97F7;
   cursor: pointer;
   right: 20px;
-  position: absolute;
   top: 10px;
 }
 
@@ -12,35 +11,97 @@
 }
 
 .form {
+  background-color: snow;
+  box-shadow: 0px 0px 3px 0px snow;
   display: flex;
-  text-align: center;
   flex-direction: column;
+  height: 400px;
+  justify-content: space-between;
+  padding-bottom: 25px;
+  padding-top: 25px;
+  text-align: left;
+  width: 350px;
 }
 
-.frostTitle {
-  color: white;
-  font-size: 30px;
-  width: 250px;
+.form_signup {
+  height: 550px;
+}
+
+.formTitle {
+  font-size: x-large;
+  text-align: center;
 }
 
 .input {
   background-color: white;
-  border: 0px;
-  border-radius: 5px;
-  height: 2vh;
-  margin: 3% 0%;
+  border: .5px solid lightgray;
+  border-radius: 100px;
+  height: 40px;
+  margin: 10px 0;
+  margin-left: 10%;
   text-align: center;
-  width: 20vw;
+  width: 80%;
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.label {
+  font-size: large;
+  padding-left: 10%;
 }
 
 .login {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 50vh;
-  justify-content: center;
+  height: 100vh;
+  justify-content: flex-start;
 }
 
-.position {
-  position: relative;
+.logo {
+  height: 150px;
+  margin-bottom: 10px;
+  margin-top: 50px;
+  object-fit: cover;
+  width: 500px;
+}
+
+.name {
+  display: flex;
+  margin-left: 5%;
+  width: 90%;
+}
+
+.nameLabelAndInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+}
+
+.page {
+  background-color: white;
+  min-height: 100vh;
+}
+
+.passwordTitleLine {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.signup {
+  text-align: center;
+  width: 100%;
+}
+
+.button {
+  background-color: #3C97F7;
+  color: white;
+  font-size: medium;
 }

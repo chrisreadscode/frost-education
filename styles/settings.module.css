@@ -1,0 +1,88 @@
+.button {
+  align-items: center;
+  background-color: #3C97F7;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px 0px lightgray;
+  color: white;
+  display: flex;
+  height: 40px;
+  font-size: medium;
+  padding: 0px;
+  justify-content: center;
+  width: 200px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
+
+.inputs {
+  display: flex;
+  padding: 5px;
+  padding-bottom: 15px;
+}
+
+.label {
+  padding-bottom: 5px;
+}
+
+.pageSection {
+  display: flex;
+  width: 100%;
+}
+
+.profileTitle {
+ font-size: x-large;
+}
+
+.sectionActive {
+  color: #3C97F7;
+  text-decoration: underline;
+}
+
+.sectionColumn {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+}
+
+.sectionTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.textButton {
+  align-items: center;
+  background-color: white;
+  border: 0;
+  border-radius: 50px;
+  box-shadow: 0px 0px 3px 0px lightgray;
+  color: black;
+  display: flex;
+  height: 40px;
+  font-size: medium;
+  padding: 0px;
+  justify-content: center;
+  text-align: center;
+  width: 300px;
+}
+
+.title {
+  align-items: center;
+  display: flex;
+  font-size: xx-large;
+  height: 100px;
+  justify-content: center;
+}
+

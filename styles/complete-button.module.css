@@ -1,0 +1,26 @@
+.button {
+  align-items: center;
+  background-color: #3C97F7;
+  border: 0;
+  border-radius: 100px;
+  box-shadow: 0px 0px 3px 0px lightgray;
+  color: white;
+  display: flex;
+  height: 50px;
+  font-size: medium;
+  padding: 0px;
+  justify-content: center;
+  width: 200px;
+}
+
+.button:hover {
+  opacity: 50%;
+  cursor: pointer;
+}
+
+.completeButtonContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

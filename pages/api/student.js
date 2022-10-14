@@ -1,11 +1,32 @@
+import authentication from './utilities/authentication';
 import { PrismaClient } from '@prisma/client';
 
 export default async function handler(req, res) {
-  const prisma = new PrismaClient();
+  const accessToken = await authentication(req, res);
 
-  const student = await prisma.student.findUnique({
-    where: { username: 'saul@saul.com' },
-  });
+  if (accessToken.success) {
+    const prisma = new PrismaClient();
 
-  res.json(student);
+    const authentication = await prisma.authentication.findUnique({
+      where: { accessToken: accessToken.success },
+      select: {
+        student: {
+          select: {
+            id: true,
+            firstName: true,
+            lastName: true,
+            username: true,
+          },
+        },
+      },
+    });
+
+    const student = authentication.student;
+
+    res.status(200).json({ accessToken, student });
+  } else
+    res.status(400).json({
+      error:
+        'Credentials invalid. To resolve, please login in again. Thank you.',
+    });
 }

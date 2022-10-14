@@ -1,0 +1,21 @@
+.button {
+  background-color: #3C97F7;
+  border: 0;
+  border-radius: 10px;
+  color: white;
+  font-size: medium;
+  height: 50px;
+  width: 50px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.openMenu {
+  display: flex;
+  justify-content: space-between;
+  width: 375px;
+}

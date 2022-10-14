@@ -1,167 +1,96 @@
-.inherit {
-  border: inherit;
-  color: inherit;
-  text-decoration: inherit;
+.welcome {
+  font-size: xx-large;
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
-.blueBackground {
-  background-color: #5695f0;
-  color: white;
-}
-
-.bulletCircle {
-  border: 2px solid #5695F0;
-  border-radius: 50%;
-  height: 25px;
-  margin: 12px;
-  width: 25px;
-}
-
-.bulletCompletedCircle {
-  background-color: #5695F0;
-}
-
-.bulletRow {
-  align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 90%;
-}
-
-.bulletRow:hover {
-  opacity: 50%;
-  text-decoration: underline;
-}
-
-.bullets {
-  align-items: flex-start;
+.courseBoxesContainer {
   display: flex;
   flex-direction: column;
-  height: 85%;
   justify-content: flex-start;
-  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-left: 5%;
   width: 90%;
 }
 
-.college {
+.containerTitle {
+  font-size: large;
+}
+
+.bigBlueSquare {
   align-items: center;
-  background-color: white;
-  border-radius: 50px;
-  box-shadow: 0px 0px 0px 1px white;
-  color: #5695F0;
+  background-color: #3c97f7;
+  box-shadow: 0px 0px 3px 0px #3c97f7;
+  color: white;
   display: flex;
-  height: 50px;
-  justify-content: center;
-  width: 150px;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 300px;
+  margin-top: 10px;
+  width: 400px;
 }
 
-.collegeList {
-  align-items: flex-start;
-  display: flex;
-  /* ~13.333% of height */
-  height: 97.5px;
-  justify-content: space-around;
-  font-size: larger;
-  margin: 5%;
-  text-align: center;
-  width: 90%;
-}
-
-.frostTitle {
-  display: flex;
-  font-size: 30px;
-  justify-content: center;
-  margin: auto;
-  /* ~2.5% of height: 5% total */
-  padding: 35px;
-  width: 250px;
-}
-
-.frostTitle:hover {
+.bigBlueSquare:hover {
+  cursor: pointer;
   opacity: 50%;
   text-decoration: underline;
 }
 
-.modal {
-  display: none;
-  height: 100vh;
-  overflow: auto;
-  position: fixed;
-  visibility: hidden;
-  width: 100vw;
-  z-index: 1;
+.smallerSquare {
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 0px 3px 0px white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100px;
+  margin: 10px;
+  margin-bottom: 50px;
+  opacity: 50%;
+  width: 200px;
 }
 
-.sections {
-  color: #5695f0;
+.smallerSquareUnlocked {
+  opacity: 100%;
+}
+
+.smallerSquareUnlocked:hover {
+  cursor: pointer;
+  opacity: 50%;
+  text-decoration: underline;
+}
+
+.smallerSquaresContainer {
+  align-content: space-evenly;
   display: flex;
+  height: 300px;
+  width: 600px;
   justify-content: space-evenly;
 }
 
-.section {
-  align-items: center;
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0px 0px 1px 2px white;
+.row {
   display: flex;
-  flex-direction: column;
-  /* ~50% of height */
-  height: 375px; 
-  justify-content: flex-start;
-  /* ~20% of width */
-  width: 250px;
-  
 }
 
-.sectionButton {
-  background-color: #5695f0;
-  border-radius: 10px;
-  border: 3px solid white;
-  color: white;
-  font-size: 15;
-  position: absolute;
-  text-align: right;
-  top: 0px;
-  right: 0px;
-  height: 20px;
-  /* width: 25%; */
+.frostNewsSquare {
+  height: 150px;
+  justify-content: space-evenly;
+  opacity: 100%;
 }
 
-.sectionButton:hover {
-  opacity: 50%;
-  text-decoration: underline;
-}
-
-.sectionTitle {
-  border-bottom: 1px solid #5695F0;
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-  height: 15%;
-  justify-content: center;
-  text-align: center;
-  width: 100%;
-}
-
-.sectionTitle:hover {
-  opacity: 50%;
-  text-decoration: underline;
-}
-
-.support {
-  align-items: flex-end;
-  background-color: #5695F0;
+.frostNewsSquare:hover {
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  font-size: small;
-  position: absolute;
-  right: 20px;
-  top: 10px;
-  z-index: 1;
-}
-
-.support:hover {
   opacity: 50%;
   text-decoration: underline;
+}
+
+.frostNewsSquareText {
+  text-align: center;
+  width: 80%;
+}
+
+.frostNewsContainer {
+  margin-left: 5%;
+  width: 90%;
 }

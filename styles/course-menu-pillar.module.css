@@ -1,0 +1,28 @@
+.pillarLine {
+  display: flex;
+  justify-content: space-between;
+  width: 275px;
+  opacity: 50%;
+}
+
+.pillarPieces {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  opacity: 50%;
+}
+
+.open {
+  opacity: 100%;
+}
+
+.open:hover {
+  opacity: 50%;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.openPieces {
+  opacity: 100%;
+}

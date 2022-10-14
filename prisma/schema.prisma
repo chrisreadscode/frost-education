@@ -1,5 +1,7 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
+// npx prisma migrate dev --name our_migration_note_here
+// npx prisma db push --force-reset  to reset databae
 
 generator client {
   provider = "prisma-client-js"
@@ -10,6 +12,17 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Authentication {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  accessToken  String  @unique
+  refreshToken String  @unique
+  student      Student @relation(fields: [studentId], references: [id])
+  studentId    Int     @unique
+}
+
 model College {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
@@ -17,40 +30,71 @@ model College {
 
   logoLink String?
   name     String  @unique
-  nickname String  @unique
+  nickname String? @unique
 
   students StudentColleges[]
 }
 
-model Curriculum {
+model CoursePage {
   id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  content                 String?
-  lectureLink             String?
-  pageLink                String
-  positionInSequence      Int
-  section                 String
-  title                   String
-  titleForTableOfContents String
+  category          String
+  pageContent       String?
+  pillar            CoursePillar @relation(fields: [pillarId], references: [id])
+  pillarId          Int
+  positionInSection Int
+  title             String
+  videoLink         String?
 
-  curriculumExamples CurriculumExample[]
-  students           StudentProgressOnCurriculum[]
+  examples         Example[]
+  reviews          Review[]
+  studentsProgress StudentProgress[]
+  questions        Question[]
 
-  @@unique([pageLink, section, title])
+  @@unique([pillarId, title], name: "coursePageId")
+  @@unique([pillarId, positionInSection], name: "coursePagePillarPositionInSection")
 }
 
-model CurriculumExample {
+model CoursePillar {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  name  String @unique
+  order Int
+
+  coursePages CoursePage[]
+}
+
+model Example {
   id               Int        @id @default(autoincrement())
   creator          Student    @relation(fields: [creatorStudentId], references: [id])
   creatorStudentId Int
-  curriculum       Curriculum @relation(fields: [curriculumId], references: [id])
-  curriculumId     Int
+  coursePage       CoursePage @relation(fields: [coursePageId], references: [id])
+  coursePageId     Int
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
 
   example String
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  rating   Int
+  question String?
+  feedback String?
+
+  coursePage   CoursePage @relation(fields: [coursePageId], references: [id])
+  coursePageId Int
+  student      Student    @relation(fields: [studentId], references: [id])
+  studentId    Int
+
+  @@unique([id, coursePageId, studentId], name: "idCoursePageIdStudentId")
 }
 
 model Student {
@@ -60,12 +104,16 @@ model Student {
 
   firstName String?
   lastName  String?
+  password  String
   program   String?
   username  String  @unique
 
-  colleges           StudentColleges[]
-  curriculum         StudentProgressOnCurriculum[]
-  curriculumExamples CurriculumExample[]
+  authentication   Authentication[]
+  colleges         StudentColleges[]
+  examples         Example[]
+  reviews          Review[]
+  studentsProgress StudentProgress[]
+  questions        Question[]
 }
 
 model StudentColleges {
@@ -76,14 +124,14 @@ model StudentColleges {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  choice Int
+  choice Int?
 
   @@id([collegeId, studentId])
 }
 
-model StudentProgressOnCurriculum {
-  curriculum   Curriculum @relation(fields: [curriculumId], references: [id])
-  curriculumId Int
+model StudentProgress {
+  coursePage   CoursePage @relation(fields: [coursePageId], references: [id])
+  coursePageId Int
   student      Student    @relation(fields: [studentId], references: [id])
   studentId    Int
   createdAt    DateTime   @default(now())
@@ -93,5 +141,20 @@ model StudentProgressOnCurriculum {
   complete Boolean @default(false)
   notes    String?
 
-  @@id([curriculumId, studentId])
+  @@id([coursePageId, studentId])
+}
+
+model Question {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  question String
+
+  coursePage   CoursePage @relation(fields: [coursePageId], references: [id])
+  coursePageId Int
+  student      Student    @relation(fields: [studentId], references: [id])
+  studentId    Int
+
+  @@unique([id, coursePageId, studentId], name: "idCoursePageIdStudentId")
 }
