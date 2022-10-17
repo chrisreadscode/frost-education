@@ -17,7 +17,7 @@ export default function Settings() {
   const router = useRouter();
 
   useEffect(async () => {
-    const endpoint = '/api/student';
+    const endpoint = '/api/settings/profile/update';
     const response = await fetch(endpoint);
     const data = await response.json();
     const { accessToken, error, student } = data;

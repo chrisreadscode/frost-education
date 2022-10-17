@@ -1,13 +1,11 @@
 import authentication from './utilities/authentication';
 import '@gouch/to-title-case';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../db';
 
 export default async function handler(req, res) {
   const accessToken = await authentication(req, res);
 
   if (accessToken.success) {
-    const prisma = new PrismaClient();
-
     const { pillarId, positionInSection, question } = req.body;
 
     const authentication = await prisma.authentication.findUnique({

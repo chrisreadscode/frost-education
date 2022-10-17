@@ -15,7 +15,7 @@ export default function Home() {
   const [nextUrl, setNextUrl] = useState('');
 
   useEffect(async () => {
-    const response = await fetch('/api/student');
+    const response = await fetch('/api/settings/profile/get');
     const data = await response.json();
 
     const { accessToken, error, student } = data;

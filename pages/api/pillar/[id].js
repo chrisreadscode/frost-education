@@ -1,12 +1,11 @@
-import authentication from '../utilities/authentication';
-import { PrismaClient } from '@prisma/client';
+import authentication from './authentication/tokens';
+import { prisma } from '../../db';
 
 export default async function handler(req, res) {
+  // Left off: refactor this and maybe remove it?
   const accessToken = await authentication(req, res);
 
   if (accessToken.success) {
-    const prisma = new PrismaClient();
-
     const { id: pillarId } = req.query;
 
     const positionInSection = req.body;

@@ -1,11 +1,10 @@
-import { PrismaClient } from '@prisma/client';
+import authentication from './authentication/tokens';
+import { prisma } from '../../db';
 
 export default async function handler(req, res) {
   const accessToken = await authentication(req, res);
 
   if (accessToken.success) {
-    const prisma = new PrismaClient();
-
     const coursePillars = await prisma.coursePillar.findMany({
       include: {
         coursePages: true,

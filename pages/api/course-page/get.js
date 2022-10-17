@@ -1,13 +1,11 @@
-import authentication from './utilities/authentication';
+import authentication from '../authentication/tokens';
 import '@gouch/to-title-case';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../db';
 
 export default async function handler(req, res) {
   const accessToken = await authentication(req, res);
 
   if (accessToken.success) {
-    const prisma = new PrismaClient();
-
     const { pillar: pillarName, title: urlTitle } = req.body;
 
     const capitals = urlTitle.toTitleCase();

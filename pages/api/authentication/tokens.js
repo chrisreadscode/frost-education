@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../db';
 
 // returns either accessToken.success with working token, or accessToken.error
 export default async function (req, res) {
@@ -24,8 +24,6 @@ export default async function (req, res) {
 
         // update access token with working refresh token
         // first - find student the refresh token is associated with
-        const prisma = new PrismaClient();
-
         const studentAuthentication = await prisma.authentication.findUnique({
           where: { refreshToken: refreshToken },
           select: {

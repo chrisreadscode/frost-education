@@ -33,7 +33,7 @@ export default function CollegeList({
 
   const removeFromCollegeList = async (college) => {
     setCollegeList((data) => data.filter((ele) => ele !== college));
-    const endpoint = '/api/student-colleges/delete';
+    const endpoint = '/api/college-list/delete';
     const options = {
       body: JSON.stringify(college),
       headers: { 'Content-Type': 'application/json' },
@@ -59,7 +59,7 @@ export default function CollegeList({
         setCollegeList((data) =>
           [...data, { name: suggestion }].sort((a, b) => b.choice - a.choice)
         );
-        const response = await fetch('/api/student-colleges/add', {
+        const response = await fetch('/api/college-list/add', {
           body: JSON.stringify({ suggestion }),
           headers: { 'Content-Type': 'application/json' },
           method: 'POST',

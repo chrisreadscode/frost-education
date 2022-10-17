@@ -37,7 +37,7 @@ export default function Navigation({ navigationCategory }) {
   }, []);
 
   useEffect(async () => {
-    const endpoint = '/api/student';
+    const endpoint = '/api/settings/profile/update';
     const response = await fetch(endpoint);
     const data = await response.json();
 

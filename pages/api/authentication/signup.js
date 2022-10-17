@@ -1,10 +1,8 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '../../db';
 
 export default async function handler(req, res) {
-  const prisma = new PrismaClient();
-
   const data = req.body;
   const {
     email,

@@ -29,7 +29,7 @@ export default function Login() {
 
       const JSONdata = JSON.stringify(data);
 
-      const endpoint = '/api/login';
+      const endpoint = '/api/authentication/login';
 
       const options = {
         method: 'POST',
@@ -56,7 +56,6 @@ export default function Login() {
       <div className={styles.login}>
         <img className={styles.logo} src="/frost-education*.png" />
         <form
-          action="/api/login"
           className={styles.form}
           method="post"
           onSubmit={handleSubmit}
@@ -105,7 +104,7 @@ export default function Login() {
           </div>
           <div className={styles.signup}>
             Don't have an account?{' '}
-            <Link href="/signup">
+            <Link href="/authentication/signup">
               <a>Sign Up</a>
             </Link>
           </div>

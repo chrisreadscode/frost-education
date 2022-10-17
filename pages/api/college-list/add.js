@@ -1,12 +1,10 @@
-import authentication from '../utilities/authentication';
-import { PrismaClient } from '@prisma/client';
+import authentication from '../authentication/tokens';
+import { prisma } from '../../db';
 
 export default async function handler(req, res) {
   const accessToken = await authentication(req, res);
 
   if (accessToken.success) {
-    const prisma = new PrismaClient();
-
     const authentication = await prisma.authentication.findUnique({
       where: { accessToken: accessToken.success },
       include: {
@@ -16,13 +14,11 @@ export default async function handler(req, res) {
 
     const student = authentication.student;
 
-    const { name: collegeName } = req.body;
+    const { suggestion: collegeName } = req.body;
 
     const college = await prisma.college.update({
       where: { name: collegeName },
-      data: {
-        students: { deleteMany: [{ studentId: student.id }] },
-      },
+      data: { students: { create: { studentId: student.id } } },
     });
 
     res.json({ accessToken, college });
